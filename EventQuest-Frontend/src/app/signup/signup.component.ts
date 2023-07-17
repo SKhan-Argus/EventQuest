@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SignupForm } from '../interface/SignupForm';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -19,7 +20,7 @@ export class SignupComponent {
     gender: '',
   };
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router , private ngxuiloader:NgxUiLoaderService) {}
 
   formatDate(date: Date): string {
     const day = date.getDate().toString().padStart(2, '0');
@@ -30,12 +31,14 @@ export class SignupComponent {
   }
 
   signup() {
+    this.ngxuiloader.start();
     const dateOfBirth = new Date(this.signupForm.birth);
     const formattedDOB = this.formatDate(dateOfBirth);
     this.signupForm.birth = formattedDOB;
 
     console.log(this.signupForm);
     if (this.signupForm.password != this.confirmPassword) {
+      this.ngxuiloader.stop();
       alert('Password do not match. Try again');
       this.signupForm.password = '';
       this.confirmPassword = '';
@@ -45,6 +48,8 @@ export class SignupComponent {
         .post('http://localhost:8080/users/signup', this.signupForm)
         .subscribe(
           (response: any) => {
+            this.ngxuiloader.stop();
+
             console.log(response);
 
             if (response.success === true) {
@@ -54,6 +59,8 @@ export class SignupComponent {
             }
           },
           (error) => {
+            this.ngxuiloader.stop();
+
             // Error occurred during login
             console.log('Login error:', error.error.message);
           }
@@ -62,6 +69,8 @@ export class SignupComponent {
   }
 
   redirectToLogin() {
+    this.ngxuiloader.start();
+    this.ngxuiloader.stop();
     this.router.navigate(['/login']);
   }
 }

@@ -6,4 +6,5 @@ import lombok.Data;
 public class BookingResponse {
     private boolean success;
     private String message;
+    private Long id;
 }

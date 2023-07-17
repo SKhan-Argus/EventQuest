@@ -14,6 +14,21 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { EventDialogComponent } from './event-dialog/event-dialog.component';
 import { BookingComponent } from './booking/booking.component';
+import { NgxUiLoaderModule,NgxUiLoaderConfig,SPINNER,PB_DIRECTION } from 'ngx-ui-loader';
+
+
+const ngxUiLoaderConfig:NgxUiLoaderConfig={
+  text:"Loading..",
+  textColor:"#FFFFFF",
+  textPosition:"center-center",
+  pbColor:"#0069d9",
+  bgsColor:"#0069d9",
+  fgsColor:"#0069d9",
+  fgsType:SPINNER.threeStrings,
+  fgsSize:100,
+  pbDirection:PB_DIRECTION.leftToRight,
+  pbThickness:5
+}
 
 @NgModule({
   declarations: [
@@ -33,6 +48,7 @@ import { BookingComponent } from './booking/booking.component';
     BrowserAnimationsModule,
     MatDialogModule,
     MatIconModule,
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

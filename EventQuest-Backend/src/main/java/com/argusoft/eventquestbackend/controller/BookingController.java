@@ -32,6 +32,7 @@ public class BookingController {
         BookingResponse bookingResponse  = new BookingResponse();
         bookingResponse.setSuccess(true);
         bookingResponse.setMessage("Booking Successful");
+        bookingResponse.setId(booking.getId());
         return ResponseEntity.status(HttpStatus.CREATED).body(bookingResponse);
     }
 
@@ -41,7 +42,7 @@ public class BookingController {
         if(booking == null){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
-        return ResponseEntity.status(HttpStatus.FOUND).body(booking);
+        return ResponseEntity.ok(booking);
 
     }
 

@@ -1,5 +1,6 @@
 package com.argusoft.eventquestbackend.controller;
 
+import com.argusoft.eventquestbackend.model.Booking;
 import com.argusoft.eventquestbackend.model.Event;
 import com.argusoft.eventquestbackend.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,4 +38,13 @@ public class EventController {
         return eventService.findAllByName(name);
     }
 
+    @GetMapping("/{eventId}")
+    public ResponseEntity<Event> findBookingById(@PathVariable Long eventId){
+        Event event = eventService.findEventById(eventId);
+        if(event == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        return ResponseEntity.ok(event);
+
+    }
 }

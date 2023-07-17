@@ -4,6 +4,7 @@ import { Booking } from '../interface/Booking';
 import { Event } from '../interface/Event';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 @Component({
   selector: 'app-event-dialog',
   templateUrl: './event-dialog.component.html',
@@ -34,6 +35,7 @@ export class EventDialogComponent {
     public dialogRef: MatDialogRef<EventDialogComponent>,
     private http: HttpClient,
     private router:Router,
+    private ngxuiloader:NgxUiLoaderService,
   ) {
     this.event = data.event;
   }
@@ -57,12 +59,12 @@ export class EventDialogComponent {
         .subscribe(
           (response: any) => {
             if (response.success === true) {
-              console.log(this.booking);
+              console.log(response);
               
               // Login successful
-              console.log('success');
-              console.log(response);
-              this.router.navigate(['/booking'], { queryParams: { booking: JSON.stringify(this.booking), event: JSON.stringify(event) } });
+              this.ngxuiloader.start();
+              this.ngxuiloader.stop();              
+              this.router.navigate(['/booking'], { queryParams: { bookingId:response.id, } });
             }
           },
           (error) => {
