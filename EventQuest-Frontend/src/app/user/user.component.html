@@ -1,0 +1,59 @@
+<div class="container" id="container">
+  <div class="background-image"></div>
+  <h2>Welcome to the User Dashboard</h2>
+  <div class="search-form">
+    <h3>Search Events by Name</h3>
+    <form
+      ngNativeValidate
+      autocomplete="off"
+      (ngSubmit)="searchEventsWithName()"
+    >
+      <input
+        type="text"
+        [(ngModel)]="eventName"
+        minlength="3"
+        maxlength="50"
+        name="eventName"
+        placeholder="Enter event name or keyword"
+        required
+      />
+      <button type="submit" class="background">Search</button>
+    </form>
+  </div>
+  <div class="search-form">
+    <h3>Search Events by Location</h3>
+    <form
+      ngNativeValidate
+      autocomplete="off"
+      (ngSubmit)="searchEventsWithLocation()"
+    >
+      <select [(ngModel)]="eventLocation" name="eventLocation" required>
+        <option value="">Select event location</option>
+        <option value="Gandhinagar">Gandhinagar</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Location 3">Location 3</option>
+      </select>
+      <button class="background" type="submit">Search</button>
+    </form>
+  </div>
+  <div class="events-list">
+    <h3>Events List</h3>
+    <ul>
+      <li *ngFor="let event of events">
+        <div class="list-container">
+          <div class="left">
+            <h4>{{ event.name }}</h4>
+            <p>Location: {{ event.location }}</p>
+            <p>Date: {{ event.date }}</p>
+            <p>Time: {{ event.time }}</p>
+            <p>Description: {{ event.description }}</p>
+          </div>
+          <div class="right">
+            <button class="book background" (click)="bookSeat(event)">Add Seat</button>
+            <p class="availability">Availability: {{ event.availability }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

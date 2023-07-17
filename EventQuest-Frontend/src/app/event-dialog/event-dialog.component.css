@@ -1,0 +1,58 @@
+
+
+.list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    position: relative;
+  }
+  
+  .list-container h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .list-container p {
+    margin: 5px 0;
+  }
+  
+  .ticket-container {
+    margin-top: 10px;
+  }
+  
+  .ticket-container label {
+    font-size: 14px;
+  }
+  
+  .ticket-container input {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .book {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .availability {
+    margin-top: 10px;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  

@@ -1,0 +1,24 @@
+<div class="list-container">
+  <h4>{{ event.name }}</h4>
+  <p>Location: {{ event.location }}</p>
+  <p>Date: {{ event.date }}</p>
+  <p>Time: {{ event.time }}</p>
+  <p>Description: {{ event.description }}</p>
+  <div class="ticket-container">
+    <label for="tickets{{ event.id }}">Tickets:</label>
+    <input
+      type="number"
+      id="tickets{{ event.id }}"
+      [(ngModel)]="booking.ticketQuantity"
+      name="tickets{{ event.id }}"
+      min="1"
+      max="{{ event.availability }}"
+      required
+    />
+  </div>
+  <button class="book" (click)="bookEvent(event)">Book Event</button>
+  <p class="availability">Availability: {{ event.availability }}</p>
+  <button mat-icon-button class="close-button" (click)="closeDialog()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("./booking/booking.component.css");
+    </style>
+  </head>
+  <body>
+    <div class="booking-details">
+      <h2>Booking Details</h2>
+      <div class="booking-info">
+        <p><strong>Event Name:</strong> {{ event.name }}</p>
+        <p><strong>Event Date:</strong> {{ event.date }}</p>
+        <p><strong>Event Time:</strong> {{ event.time }}</p>
+        <p><strong>Location:</strong> {{ event.location }}</p>
+        <p><strong>Ticket Quantity:</strong> {{ booking.ticketQuantity }}</p>
+        <p><strong>Total Price:</strong> {{ booking.totalPrice }}</p>
+      </div>
+    </div>
+  </body>
+</html>
