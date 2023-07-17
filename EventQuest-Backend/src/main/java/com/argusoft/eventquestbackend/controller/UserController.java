@@ -1,6 +1,7 @@
 package com.argusoft.eventquestbackend.controller;
 
 import com.argusoft.eventquestbackend.model.LoginResponse;
+import com.argusoft.eventquestbackend.model.SignupResponse;
 import com.argusoft.eventquestbackend.model.User;
 import com.argusoft.eventquestbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,20 +19,22 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/signup")
-    public ResponseEntity<?> signup(@RequestParam("username") String username,
-                                         @RequestParam("password") String password){
+    public ResponseEntity<?> signup(@RequestBody User user){
+        SignupResponse signupResponse = new SignupResponse();
 
-        if(userService.findByUsername(username) != null){
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already exists");
+        if(userService.findByUsername(user.getUsername()) != null){
+            signupResponse.setMessage("Username already exists");
+            signupResponse.setSuccess(false);
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(signupResponse);
         }
 
-        User user = new User();
-        user.setUsername(username);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String hashedPassword = passwordEncoder.encode(password);
+        String hashedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(hashedPassword);
         userService.addUser(user);
-        return ResponseEntity.ok("Signup Successfully");
+        signupResponse.setMessage("User added successfully");
+        signupResponse.setSuccess(true);
+        return ResponseEntity.ok(signupResponse);
     }
 
     @PostMapping("/login")

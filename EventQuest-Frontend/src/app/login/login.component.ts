@@ -26,12 +26,8 @@ export class LoginComponent {
       },
       (error) => {
         // Error occurred during login
-        if(error.status === 401){
-          console.log(error);
-        }
-        else{
-          console.log('Login error:', error);
-        }
+        
+        console.log('Login error:', error.error.message);
       }
     );
   }

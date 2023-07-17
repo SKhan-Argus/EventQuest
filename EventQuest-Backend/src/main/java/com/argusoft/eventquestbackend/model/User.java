@@ -33,6 +33,4 @@ public class User {
     @Column(name = "gender")
     private String gender;
 
-
-
 }

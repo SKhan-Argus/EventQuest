@@ -3,6 +3,20 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative; /* Add position relative for proper stacking of elements */
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/images/background-image.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.9;
+  z-index: -1;
 }
 
 .signup-form {
@@ -25,20 +39,46 @@
 
 .signup-form label {
   display: block;
-  font-weight: bold;
   margin-bottom: 5px;
 }
 
 .signup-form input[type="text"],
-.signup-form input[type="password"] {
-  width: 90%;
+.signup-form input[type="password"],
+.signup-form input[type="email"],
+.signup-form input[type="date"] {
+  width: 90%; /* Use full width for input fields */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
+.signup-form .radio-group {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.signup-form .radio-group label {
+  display: inline;
+  margin-right: 30px; 
+}
+
+.signup-form .dob-group {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+.signup-form .dob-group label {
+  display: inline;
+  margin-right: 20px;
+  width: 30%;
+}
+.signup-form .dob-group input {
+  width: 57%;
+}
+
 .signup-form button[type="submit"] {
-  width: 80%;
+  width: 80%; 
   padding: 10px;
   background-color: #007bff;
   color: #fff;
@@ -57,23 +97,15 @@
   border: none;
   text-decoration: underline;
 }
-  
+
 .login button {
   margin-top: 10px;
   background: none;
   border: none;
   text-decoration: underline;
 }
-  
-.background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../../assets/images/background-image.jpg');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.9;
-  z-index: -1;
+
+/* Additional CSS for gender radio buttons */
+.signup-form .radio-group input[type="radio"] {
+  margin-right: 5px;
 }
