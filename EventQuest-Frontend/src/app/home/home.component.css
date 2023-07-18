@@ -74,3 +74,28 @@
     background-color: #6c757d;
   }
   
+/* Styles for the project name */
+.project-name {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+  font-weight: bold;
+  animation: jumpAnimation 1s ease infinite;
+  color: #F66B9A;
+  padding: 10px;
+}
+
+/* Keyframes for the jumping animation */
+@keyframes jumpAnimation {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-15px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-8px);
+  }
+}

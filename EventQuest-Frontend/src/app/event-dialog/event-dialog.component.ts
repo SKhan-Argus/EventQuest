@@ -19,6 +19,7 @@ export class EventDialogComponent {
     location: '',
     description: '',
     availability: 0,
+    price:0,
   };
 
   booking: Booking = {

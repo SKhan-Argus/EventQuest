@@ -6,4 +6,5 @@ export interface Event{
     location:string;
     description:string;
     availability:number;
+    price:number;
 }

@@ -13,4 +13,9 @@ app-root{
 .cdk-overlay-container{
     position: absolute;
     top: 200px;
+  
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    border-radius: 15px !important;
 }

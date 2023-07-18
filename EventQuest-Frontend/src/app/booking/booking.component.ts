@@ -26,6 +26,7 @@ export class BookingComponent implements AfterViewInit {
     location: '',
     description: '',
     availability: 0,
+    price:0,
   };
 
   booking: Booking = {
@@ -89,9 +90,7 @@ export class BookingComponent implements AfterViewInit {
       this.event.time = eventResponse.time;
       this.event.description = eventResponse.description;
       this.event.location = eventResponse.location;
-  
-      console.log(this.booking);
-      console.log(this.event);
+      this.booking.totalPrice = eventResponse.price * this.booking.ticketQuantity;
     } catch (error) {
       console.log(error);
     }

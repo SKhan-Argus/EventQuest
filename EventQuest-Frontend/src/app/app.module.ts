@@ -15,6 +15,7 @@ import { UserComponent } from './user/user.component';
 import { EventDialogComponent } from './event-dialog/event-dialog.component';
 import { BookingComponent } from './booking/booking.component';
 import { NgxUiLoaderModule,NgxUiLoaderConfig,SPINNER,PB_DIRECTION } from 'ngx-ui-loader';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 
 const ngxUiLoaderConfig:NgxUiLoaderConfig={
@@ -39,6 +40,7 @@ const ngxUiLoaderConfig:NgxUiLoaderConfig={
     UserComponent,
     EventDialogComponent,
     BookingComponent,
+    ForgetPasswordComponent,
   ],
   imports: [
     BrowserModule,

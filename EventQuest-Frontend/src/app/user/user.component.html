@@ -1,6 +1,8 @@
 <div class="container" id="container">
+  <a routerLink=""><div class="project-name">Event Quest</div></a>
+
   <div class="background-image"></div>
-  <h2>Welcome to the User Dashboard</h2>
+  <!-- <h2>Welcome to the User Dashboard</h2> -->
   <div class="search-form">
     <h3>Search Events by Name</h3>
     <form
@@ -37,7 +39,7 @@
     </form>
   </div>
   <div class="events-list">
-    <h3>Events List</h3>
+    <h3 *ngIf="events.length>0">Events List</h3>
     <ul>
       <li *ngFor="let event of events">
         <div class="list-container">

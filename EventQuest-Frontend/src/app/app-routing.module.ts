@@ -5,13 +5,15 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { BookingComponent } from './booking/booking.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'signup', component:SignupComponent},
   {path:'user', component:UserComponent},
-  {path:'booking', component:BookingComponent}
+  {path:'booking', component:BookingComponent},
+  {path:'forget', component:ForgetPasswordComponent}
 ];
 
 @NgModule({

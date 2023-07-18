@@ -15,6 +15,8 @@
   
   .search-form {
     margin-bottom: 20px;
+    position: relative;
+    top:100px;
   }
   
   .search-form h3 {
@@ -50,6 +52,8 @@
   
   .events-list {
     margin-top: 20px;
+    position: relative;
+    top: 100px;
   }
   
   .events-list h3 {
@@ -68,10 +72,11 @@
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f9f9f9;
+    position: relative;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.6); 
   }
-  
+
   .events-list h4 {
     margin-top: 10px;
     font-size: 16px;
@@ -92,10 +97,12 @@
     cursor: pointer;
   }
 
-.list-container{
+  .list-container {
     display: flex;
     justify-content: space-between;
+   
 }
+
 
 .book{
     margin-top: 25px;
@@ -124,6 +131,49 @@
   background-image: url('../../assets/images/background-user.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.9;
+  opacity: 0.6;
   z-index: -1;
+}
+
+.right p{
+  font-size: 10px;
+}
+
+.right button{
+  margin-top: 40px;
+}
+
+.right button:hover{
+  background-color: #0069d9;
+}
+
+.search-form button:hover{
+  background-color: #0069d9;
+}
+
+
+
+.project-name {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+  font-weight: bold;
+  animation: jumpAnimation 1s ease infinite;
+  color: #007bff;
+  padding: 10px;
+}
+
+/* Keyframes for the jumping animation */
+@keyframes jumpAnimation {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-15px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-8px);
+  }
 }

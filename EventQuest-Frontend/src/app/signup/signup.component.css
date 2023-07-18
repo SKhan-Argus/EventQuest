@@ -20,13 +20,15 @@
 }
 
 .signup-form {
+  position: relative;
   width: 400px;
   padding: 20px;
   border: 1px solid #ccc;
-  border-radius: 15px;
-  background-color: #fff;
   text-align: center;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
 }
+
 
 .signup-form h2 {
   text-align: center;
@@ -105,7 +107,38 @@
   text-decoration: underline;
 }
 
+.login button:hover{
+  color: #0069d9;
+  font-weight: bold;
+}
+
 /* Additional CSS for gender radio buttons */
 .signup-form .radio-group input[type="radio"] {
   margin-right: 5px;
+}
+
+/* Styles for the project name */
+.project-name {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+  font-weight: bold;
+  animation: jumpAnimation 1s ease infinite;
+  color: #F66B9A;
+  padding: 10px;
+}
+
+/* Keyframes for the jumping animation */
+@keyframes jumpAnimation {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-15px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-8px);
+  }
 }

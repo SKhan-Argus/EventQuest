@@ -40,4 +40,9 @@ export class LoginComponent {
     this.ngxuiloader.stop();
     this.router.navigate(['/signup']);
   }
+  redirectToForgetPassword(){
+    this.ngxuiloader.start();
+    this.ngxuiloader.stop();
+    this.router.navigate(['/forget']);
+  }
 }
