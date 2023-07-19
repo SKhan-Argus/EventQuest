@@ -1,42 +1,100 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
-  styleUrls: ['./forget-password.component.css']
+  styleUrls: ['./forget-password.component.css'],
 })
 export class ForgetPasswordComponent {
   email: string = '';
   otp: string = '';
+  otpGenerated: string = '';
   newPassword: string = '';
-  confirmPassword:string='';
+  confirmPassword: string = '';
   step: 'email' | 'otp-verification' | 'new-password' = 'email';
+  isEmailVerified: boolean = false; 
 
-  onSubmit() {
+  constructor(
+    private http: HttpClient,
+    private ngxUiLoader: NgxUiLoaderService,
+    private router:Router,
+  ) {}
+
+  async onSubmit() {
     switch (this.step) {
+      //first
       case 'email':
-        // Here you would implement the logic to verify the user's email
-        // and send the OTP to the user's email address.
-        // For simplicity, let's assume the email is valid, and we proceed to the next step:
-        this.step = 'otp-verification';
+        const otp = Math.floor(100000 + Math.random() * 900000) + ''; // Generate a 6-digit OTP
+        this.otpGenerated = otp;
+        const otpData = {
+          email: this.email,
+          otp: otp,
+        };
+
+        try {
+          this.ngxUiLoader.start();
+          const forgetPasswordResponse: any = await this.http
+            .post(`http://localhost:8080/users/forget-password`, otpData)
+            .toPromise();
+          //console.log(forgetPasswordResponse);
+          this.ngxUiLoader.stop();
+          this.step = 'otp-verification';
+          this.isEmailVerified = true;
+        } catch (error) {
+          console.log(error);
+        }
         break;
+
+      //second
       case 'otp-verification':
-        // Here you would implement the logic to verify the OTP provided by the user.
-        // For simplicity, let's assume the OTP is valid, and we proceed to the next step:
-        this.step = 'new-password';
+        if (this.otp === this.otpGenerated) {
+          this.step = 'new-password';
+          //console.log("otp verified");
+        } else {
+          console.log('wrong otp');
+        }
         break;
+
+      //third
       case 'new-password':
-        // Here you would implement the logic to update the user's password.
-        // For simplicity, let's assume the new password is successfully updated.
-        // You can add your own backend API call to update the password.
-        alert('Password Updated Successfully!');
-        // After the password is updated, you may choose to navigate the user to the login page.
-        // For demonstration purposes, we reset the component to the initial state:
-        this.email = '';
-        this.otp = '';
-        this.newPassword = '';
-        this.step = 'email';
+        if (this.newPassword === this.confirmPassword) {
+          const updateData = {
+            username: this.email,
+            password: this.confirmPassword,
+          };
+          console.log(updateData);
+          
+          const forgetPasswordResponse: any = await this.http
+            .post(`http://localhost:8080/users/update-password`, updateData)
+            .toPromise();
+          // console.log(forgetPasswordResponse);
+          
+          alert('Password Updated Successfully!');
+          this.email = '';
+          this.otp = '';
+          this.newPassword = '';
+          this.step = 'email';
+          this.confirmPassword='';
+          this.isEmailVerified = false;
+          this.router.navigate(['/login']);
+        }
+
         break;
     }
+  }
+
+  redirectToSignup(){
+    this.ngxUiLoader.start();
+    this.ngxUiLoader.stop();
+    this.router.navigate(['/signup']);
+  }
+
+  redirectToLogin(){
+    this.ngxUiLoader.start();
+    this.ngxUiLoader.stop();
+    this.router.navigate(['/login']);
   }
 }

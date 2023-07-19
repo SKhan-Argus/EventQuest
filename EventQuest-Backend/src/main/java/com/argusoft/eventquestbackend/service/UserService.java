@@ -20,7 +20,10 @@ public class UserService {
     }
 
     public User findByUsername(String username){
-        System.out.println(userRepository.findByUsername(username));
         return userRepository.findByUsername(username).orElse(null);
+    }
+
+    public User updateUser(User user){
+        return userRepository.save(user);
     }
 }

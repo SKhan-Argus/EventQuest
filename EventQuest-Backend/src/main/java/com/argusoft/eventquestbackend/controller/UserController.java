@@ -1,9 +1,9 @@
 package com.argusoft.eventquestbackend.controller;
 
-import com.argusoft.eventquestbackend.model.LoginResponse;
-import com.argusoft.eventquestbackend.model.SignupResponse;
-import com.argusoft.eventquestbackend.model.User;
+import com.argusoft.eventquestbackend.model.*;
+import com.argusoft.eventquestbackend.service.EmailService;
 import com.argusoft.eventquestbackend.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +17,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private EmailService emailService;
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody User user){
@@ -40,7 +43,9 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User testUser){
         User user = userService.findByUsername(testUser.getUsername());
+        //System.out.println(user);
         if( user != null){
+
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             if(passwordEncoder.matches(testUser.getPassword(), user.getPassword())){
 
@@ -55,4 +60,48 @@ public class UserController {
         loginResponse.setMessage("Invalid Credentials");
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(loginResponse);
     }
+
+    @GetMapping("/{username}")
+    public User findByUsername(@RequestParam("username") String username){
+        System.out.println("un find");
+        return userService.findByUsername(username);
+    }
+
+
+    @PostMapping("/forget-password")
+    public ResponseEntity<?> forgetPassword(@RequestBody OtpData otpData){
+
+        User user = userService.findByUsername(otpData.getEmail());
+        OtpResponse otpResponse = new OtpResponse();
+        otpResponse.setUser(user);
+        if(user==null){
+            otpResponse.setSuccess(false);
+            otpResponse.setMessage("User not found.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(otpResponse);
+        }
+        otpResponse.setSuccess(true);
+        otpResponse.setMessage("User found.");
+        String toEmail = otpData.getEmail();
+        String subject = "OTP from EventQuest";
+        String content = "Your 6-digit OTP to reset password is " + otpData.getOtp();
+        emailService.sendEmail(toEmail, subject, content);
+        return ResponseEntity.ok(otpResponse);
+    }
+
+    @PostMapping("/update-password")
+    public ResponseEntity<?> updatePassword(@RequestBody UpdateData updateData){
+        System.out.println(updateData.getUsername());
+        User user = userService.findByUsername(updateData.getUsername());
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String hashedPassword = passwordEncoder.encode(updateData.getPassword());
+        user.setPassword(hashedPassword);
+        userService.updateUser(user);
+        UpdateResonse updateResonse = new UpdateResonse();
+        updateResonse.setMessage("Password changed successfully");
+        updateResonse.setSuccess(true);
+        System.out.println("password changed to "+ updateData.getPassword());
+        return ResponseEntity.ok(updateResonse);
+
+    }
+
 }

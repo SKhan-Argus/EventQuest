@@ -76,14 +76,14 @@ export class BookingComponent implements AfterViewInit {
   async getBookingEvent() {
     try {
       const bookingResponse: any = await this.http.get(`http://localhost:8080/bookings/${this.bookingId}`).toPromise();
-      console.log(bookingResponse);
+      //console.log(bookingResponse);
       this.booking.eventId = bookingResponse.eventId;
       this.booking.bookingDate = bookingResponse.bookingDate;
       this.booking.ticketQuantity = bookingResponse.ticketQuantity;
       this.eventId = bookingResponse.eventId;
   
       const eventResponse: any = await this.http.get(`http://localhost:8080/events/${this.eventId}`).toPromise();
-      console.log(eventResponse);
+      //console.log(eventResponse);
   
       this.event.name = eventResponse.name;
       this.event.date = eventResponse.date;
@@ -122,7 +122,7 @@ export class BookingComponent implements AfterViewInit {
     html2canvas(elementToExport).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       doc.addImage(imgData, 'PNG', 10, 30, 280, 0);
-      doc.save(`eventQuestBill${this.booking.userId}${this.booking.eventId}`);
+      doc.save(`eventQuestBill${this.booking.userId}${this.booking.eventId}${this.bookingId}`);
     });
     if (buttonToHide) {
       buttonToHide.style.display = 'inline-block';
