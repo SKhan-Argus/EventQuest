@@ -4,15 +4,23 @@ import com.argusoft.eventquestbackend.model.*;
 import com.argusoft.eventquestbackend.service.EmailService;
 import com.argusoft.eventquestbackend.service.UserService;
 
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @RestController
 @RequestMapping("/users")
-@CrossOrigin
+@CrossOrigin()
 public class UserController {
 
     @Autowired
@@ -20,6 +28,11 @@ public class UserController {
 
     @Autowired
     private EmailService emailService;
+
+    @Value("${jwt.secret}")
+    private String jwtSecret;
+    private static final long EXPIRATION_TIME = 3600 * 1000; // 1 hour in milliseconds
+
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody User user){
@@ -40,6 +53,15 @@ public class UserController {
         return ResponseEntity.ok(signupResponse);
     }
 
+    private String generateJwtToken(String username) {
+        return Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+                .signWith(SignatureAlgorithm.HS256, jwtSecret)
+                .compact();
+    }
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User testUser){
         User user = userService.findByUsername(testUser.getUsername());
@@ -48,16 +70,20 @@ public class UserController {
 
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             if(passwordEncoder.matches(testUser.getPassword(), user.getPassword())){
-
+                String token = generateJwtToken(testUser.getUsername());
+                //System.out.println("token: " + token);
                 LoginResponse loginResponse = new LoginResponse();
                 loginResponse.setSuccess(true);
                 loginResponse.setMessage("Login Successfully");
+                loginResponse.setToken(token);
                 return ResponseEntity.ok(loginResponse);
             }
         }
+
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setSuccess(false);
         loginResponse.setMessage("Invalid Credentials");
+
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(loginResponse);
     }
 

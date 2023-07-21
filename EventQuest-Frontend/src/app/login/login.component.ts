@@ -23,7 +23,12 @@ export class LoginComponent {
         if (response.success===true) {
           // Login successful]
           this.ngxuiloader.stop();
-          console.log("success")
+          localStorage.setItem('jwtToken', response.token);
+
+          
+          console.log("success")          
+          console.log(response.token);
+          
           this.router.navigate(['/user']);
         }
       },

@@ -12,7 +12,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../../assets/images/background-image.jpg');
+  background-image: url("../../assets/images/background-image.jpg");
   background-size: cover;
   background-position: center;
   opacity: 0.9;
@@ -20,7 +20,6 @@
 }
 
 .signup-form {
-  position: relative;
   width: 400px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -29,25 +28,26 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-
 .signup-form h2 {
   text-align: center;
   margin-bottom: 20px;
+  color: #006adb;
 }
 
-.signup-form .form-group {
+.form-group {
+  position: relative;
   margin-bottom: 20px;
 }
 
-.signup-form label {
+/* .signup-form label {
   display: block;
   margin-bottom: 5px;
-}
+} */
 
-.signup-form input[type="text"],
-.signup-form input[type="password"],
-.signup-form input[type="email"],
-.signup-form input[type="date"] {
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"] {
   width: 90%; /* Use full width for input fields */
   padding: 10px;
   border: 1px solid #ccc;
@@ -62,25 +62,25 @@
 
 .signup-form .radio-group label {
   display: inline;
-  margin-right: 30px; 
+  margin-right: 30px;
 }
 
-.signup-form .dob-group {
+.dob-group {
   display: flex;
   align-items: center;
   margin-top: 5px;
 }
-.signup-form .dob-group label {
+.dob-group label {
   display: inline;
   margin-right: 20px;
   width: 30%;
 }
-.signup-form .dob-group input {
+.dob-group input {
   width: 57%;
 }
 
 .signup-form button[type="submit"] {
-  width: 80%; 
+  width: 80%;
   padding: 10px;
   background-color: #007bff;
   color: #fff;
@@ -107,7 +107,7 @@
   text-decoration: underline;
 }
 
-.login button:hover{
+.login button:hover {
   color: #0069d9;
   font-weight: bold;
 }
@@ -126,13 +126,17 @@
   font-size: 40px;
   font-weight: bold;
   animation: jumpAnimation 1s ease infinite;
-  color: #F66B9A;
+  color: #b5f38d;
   padding: 10px;
 }
 
 /* Keyframes for the jumping animation */
 @keyframes jumpAnimation {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateX(-50%) translateY(0);
   }
   40% {
@@ -142,3 +146,57 @@
     transform: translateX(-50%) translateY(-8px);
   }
 }
+
+.label {
+  position: absolute;
+  left: 16px;
+  top: 10px;
+  transition: all 0.2s;
+  padding: 0 2px;
+  z-index: 1;
+  color: #b3b3b3;
+  font-weight: bold;
+}
+
+.input {
+  border: 2px solid #382f26;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.label::before {
+  content: "";
+  height: 5px;
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  width: 100%;
+  z-index: -1;
+  background-color: white;
+}
+
+.input::placeholder {
+  font-size: 16px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+.input:focus {
+  border: 2px solid #006adb;
+}
+
+input:focus + .label,
+.input:not(:placeholder-shown) + .label {
+  top: -10px;
+  font-size: 14px;
+  color: #006adb;
+}
+
+.input:not(:placeholder-shown) {
+  border: 2px solid #006adb;
+}
+
+input:focus::placeholder {
+  opacity: 1;
+  animation-delay: 0.2s;
+}
+

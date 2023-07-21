@@ -1,14 +1,10 @@
 <div class="home-page">
   <a routerLink=""><div class="project-name">Event Quest</div></a>
-
+  <div class="buttons">
+    <button class="btn btn-primary" (click)="loginPage()">Login</button>
+    <button class="btn btn-secondary" (click)="signupPage()">Signup</button>
+  </div>
     <div class="background-image"></div>
-    <div class="content">
-      <h1>Welcome to Event Booking</h1>
-      <p>Discover and book amazing events near you</p>
-      <div class="buttons">
-        <button class="btn btn-primary" (click)="loginPage()">Login</button>
-        <button class="btn btn-secondary" (click)="signupPage()">Signup</button>
-      </div>
-    </div>
+    <app-sample-event></app-sample-event>
   </div>
   

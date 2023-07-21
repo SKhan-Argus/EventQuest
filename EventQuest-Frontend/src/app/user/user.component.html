@@ -4,7 +4,6 @@
   <div class="background-image"></div>
   <!-- <h2>Welcome to the User Dashboard</h2> -->
   <div class="search-form">
-    <h3>Search Events by Name</h3>
     <form
       ngNativeValidate
       autocomplete="off"
@@ -23,7 +22,6 @@
     </form>
   </div>
   <div class="search-form">
-    <h3>Search Events by Location</h3>
     <form
       ngNativeValidate
       autocomplete="off"
@@ -38,7 +36,13 @@
       <button class="background" type="submit">Search</button>
     </form>
   </div>
+  
   <div class="events-list">
+    <h3 *ngIf="events.length==0">No Results Found!</h3>
+    <h3 *ngIf="events.length==0">Explore Beolw.</h3>
+    <div *ngIf="events.length==0">
+      <app-sample-event></app-sample-event>
+    </div>
     <h3 *ngIf="events.length>0">Events List</h3>
     <ul>
       <li *ngFor="let event of events">

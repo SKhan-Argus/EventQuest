@@ -2,32 +2,33 @@
   <!-- Add the project name element at the top of your pages -->
   <a routerLink=""><div class="project-name">Event Quest</div></a>
 
-
   <div class="background-image"></div>
   <div class="login-form">
     <h2>Login</h2>
     <form ngNativeValidate (ngSubmit)="login()" autocomplete="on">
       <div class="form-group">
-        
         <input
+          class="input"
           type="email"
           id="username"
           name="username"
           [(ngModel)]="loginForm.username"
-          placeholder="Email"
+          placeholder="Enter your Email"
           required
         />
+        <label for="username" class="label" >Email</label>
       </div>
       <div class="form-group">
-       
         <input
+          class="input"
           type="password"
           id="password"
           name="password"
           [(ngModel)]="loginForm.password"
-          placeholder="Password"
+          placeholder="Enter your Password"
           required
         />
+        <label for="password" class="label" id="password-label">Password</label>
         <div class="forget-password">
           <button
             type="button"
@@ -51,3 +52,4 @@
     </div>
   </div>
 </div>
+

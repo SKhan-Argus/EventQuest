@@ -45,6 +45,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: 73px;
+    left: 575px;
   }
   
   .buttons button {
@@ -80,10 +83,10 @@
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 40px;
+  font-size: 60px;
   font-weight: bold;
   animation: jumpAnimation 1s ease infinite;
-  color: #F66B9A;
+  color: #B5F38D;
   padding: 10px;
 }
 
@@ -98,4 +101,10 @@
   60% {
     transform: translateX(-50%) translateY(-8px);
   }
+}
+
+
+app-sample-event{
+  position: relative;
+  top: 300px;
 }
