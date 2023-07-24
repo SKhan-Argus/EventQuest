@@ -4,6 +4,8 @@
   align-items: center;
   height: 100vh;
   position: relative; /* Add position relative for proper stacking of elements */
+  background: linear-gradient(120deg, #2980b9, #8e44ad);
+
 }
 
 .background-image {
@@ -25,7 +27,7 @@
   border: 1px solid #ccc;
   text-align: center;
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #ffffff80;
 }
 
 .signup-form h2 {
@@ -77,6 +79,8 @@ input[type="date"] {
 }
 .dob-group input {
   width: 57%;
+  outline: none;
+
 }
 
 .signup-form button[type="submit"] {
@@ -126,7 +130,8 @@ input[type="date"] {
   font-size: 40px;
   font-weight: bold;
   animation: jumpAnimation 1s ease infinite;
-  color: #b5f38d;
+  color: #ffffff80;
+  ;
   padding: 10px;
 }
 
@@ -161,7 +166,7 @@ input[type="date"] {
 .input {
   border: 2px solid #382f26;
   outline: none;
-  transition: all 0.3s;
+  /* transition: all 0.3s; */
 }
 
 .label::before {
@@ -178,7 +183,7 @@ input[type="date"] {
 .input::placeholder {
   font-size: 16px;
   opacity: 0;
-  transition: all 0.3s;
+  /* transition: all 0.3s; */
 }
 .input:focus {
   border: 2px solid #006adb;
@@ -197,6 +202,11 @@ input:focus + .label,
 
 input:focus::placeholder {
   opacity: 1;
-  animation-delay: 0.2s;
+  /* animation-delay: 0.2s; */
+}
+
+.dob-group input:focus{
+  border: 2px solid #006adb !important;
+
 }
 

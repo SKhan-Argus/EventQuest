@@ -5,6 +5,8 @@ import { Booking } from '../interface/Booking';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { EventDialogComponent } from '../event-dialog/event-dialog.component';
 import { ApiService } from '../api.service';
+import { MyAuthService } from '../my-auth.service';
+import { Router, RouterEvent } from '@angular/router';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -18,11 +20,18 @@ export class UserComponent {
   constructor(
     private http: HttpClient,
     private dialog: MatDialog,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private myauth:MyAuthService,
+    private router:Router,
   ) {}
 
   ngOnInit() {
     this.events = [];
+    if(this.myauth.isLoggedIn()==='false'){
+      this.router.navigate(['/login']);
+      return
+    }
+
   }
 
   searchEventsWithName() {

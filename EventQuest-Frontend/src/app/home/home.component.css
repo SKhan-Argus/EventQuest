@@ -2,6 +2,8 @@
     position: relative;
     height: 100vh;
     overflow: hidden;
+    background: linear-gradient(120deg, #2980b9, #8e44ad);
+
   }
   
   .background-image {
@@ -86,7 +88,7 @@
   font-size: 60px;
   font-weight: bold;
   animation: jumpAnimation 1s ease infinite;
-  color: #B5F38D;
+  color: #ffffff80;
   padding: 10px;
 }
 

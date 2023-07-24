@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background: linear-gradient(120deg, #2980b9, #8e44ad);
 
 }
 
@@ -12,7 +13,7 @@
   border: 1px solid #ccc;
   text-align: center;
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #ffffff80;
 }
 
 
@@ -94,7 +95,7 @@
   font-size: 40px;
   font-weight: bold;
   animation: jumpAnimation 1s ease infinite;
-  color: #B5F38D;
+  color: #ffffff80;
   padding: 10px;
 }
 

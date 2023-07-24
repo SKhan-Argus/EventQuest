@@ -70,12 +70,13 @@ public class UserController {
 
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             if(passwordEncoder.matches(testUser.getPassword(), user.getPassword())){
-                String token = generateJwtToken(testUser.getUsername());
+                //String token = generateJwtToken(testUser.getUsername());
                 //System.out.println("token: " + token);
                 LoginResponse loginResponse = new LoginResponse();
                 loginResponse.setSuccess(true);
                 loginResponse.setMessage("Login Successfully");
-                loginResponse.setToken(token);
+                //loginResponse.setToken(token);
+                loginResponse.setUser(user);
                 return ResponseEntity.ok(loginResponse);
             }
         }

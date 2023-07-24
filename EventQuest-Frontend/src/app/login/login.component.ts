@@ -3,6 +3,7 @@ import { LoginForm } from '../interface/LoginForm';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { MyAuthService } from '../my-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent {
     username: '',
     password: ''
   };
-  constructor(private http: HttpClient, private router:Router, private ngxuiloader:NgxUiLoaderService) {}
+  constructor(private http: HttpClient, private router:Router, private ngxuiloader:NgxUiLoaderService, private myauth:MyAuthService) {}
 
   login() {
     this.ngxuiloader.start();
@@ -23,11 +24,13 @@ export class LoginComponent {
         if (response.success===true) {
           // Login successful]
           this.ngxuiloader.stop();
-          localStorage.setItem('jwtToken', response.token);
-
+          console.log("Login success");
+          //console.log(response.user);
           
-          console.log("success")          
-          console.log(response.token);
+          this.myauth.login(response.user);
+          //localStorage.setItem('jwtToken', response.token);    
+          //console.log(response.token);
+
           
           this.router.navigate(['/user']);
         }
