@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
@@ -21,6 +22,7 @@ export class ForgetPasswordComponent {
     private http: HttpClient,
     private ngxUiLoader: NgxUiLoaderService,
     private router:Router,
+    private toastr:ToastrService,
   ) {}
 
   async onSubmit() {
@@ -72,14 +74,16 @@ export class ForgetPasswordComponent {
             .toPromise();
           // console.log(forgetPasswordResponse);
           
-          alert('Password Updated Successfully!');
           this.email = '';
           this.otp = '';
           this.newPassword = '';
           this.step = 'email';
           this.confirmPassword='';
           this.isEmailVerified = false;
+
           this.router.navigate(['/login']);
+          this.toastr.success('', 'Password Change Successful!');
+
         }
 
         break;
@@ -97,4 +101,5 @@ export class ForgetPasswordComponent {
     this.ngxUiLoader.stop();
     this.router.navigate(['/login']);
   }
-}
+}import { ToastrService } from 'ngx-toastr';
+

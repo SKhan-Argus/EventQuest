@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { MyAuthService } from '../my-auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent {
     username: '',
     password: ''
   };
-  constructor(private http: HttpClient, private router:Router, private ngxuiloader:NgxUiLoaderService, private myauth:MyAuthService) {}
+  constructor(private toastr:ToastrService,private http: HttpClient, private router:Router, private ngxuiloader:NgxUiLoaderService, private myauth:MyAuthService) {}
 
   login() {
     this.ngxuiloader.start();
@@ -25,14 +26,16 @@ export class LoginComponent {
           // Login successful]
           this.ngxuiloader.stop();
           console.log("Login success");
-          //console.log(response.user);
+          console.log(response.user);
           
           this.myauth.login(response.user);
           //localStorage.setItem('jwtToken', response.token);    
           //console.log(response.token);
 
-          
+
           this.router.navigate(['/user']);
+          this.toastr.success('', 'LogIn Successful !');
+
         }
       },
       (error) => {

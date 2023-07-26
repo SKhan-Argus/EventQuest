@@ -17,6 +17,9 @@ import { BookingComponent } from './booking/booking.component';
 import { NgxUiLoaderModule,NgxUiLoaderConfig,SPINNER,PB_DIRECTION } from 'ngx-ui-loader';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { SampleEventComponent } from './sample-event/sample-event.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ToastrModule } from 'ngx-toastr';
+import { timeout } from 'rxjs';
 
 
 const ngxUiLoaderConfig:NgxUiLoaderConfig={
@@ -43,6 +46,7 @@ const ngxUiLoaderConfig:NgxUiLoaderConfig={
     BookingComponent,
     ForgetPasswordComponent,
     SampleEventComponent,
+    NavbarComponent,
 
   ],
   imports: [
@@ -53,7 +57,14 @@ const ngxUiLoaderConfig:NgxUiLoaderConfig={
     BrowserAnimationsModule,
     MatDialogModule,
     MatIconModule,
-    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
+    ToastrModule.forRoot({
+      timeOut:5000,
+      positionClass:'toast-bottom-right',
+      preventDuplicates:true,
+      closeButton:true,
+
+}),
   ],
   providers: [],
   bootstrap: [AppComponent]

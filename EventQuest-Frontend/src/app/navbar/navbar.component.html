@@ -1,0 +1,10 @@
+<div class="container">
+    <div *ngIf="isLoggedIn==='true'" class="nav">
+        <div class="user-info">
+            <i class="fa-solid fa-user"></i> <!-- Replace 'fa-user-circle' with your desired user icon class -->
+            <span class="username">{{username}}</span> <!-- Replace 'John Doe' with the actual username -->
+          </div>
+        <!-- <button type="button" class=" btn logout-buttona" (click)="logout()">Logout</button> -->
+        <i class="logout-icon fa-solid fa-power-off fa-2xl  fa-sharp" (click)="logout()"></i> <!-- Replace 'fa-sign-out' with your desired logout icon class -->
+    </div>
+</div>

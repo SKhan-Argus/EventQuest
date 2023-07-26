@@ -19,6 +19,7 @@ export class BookingComponent implements AfterViewInit {
 
   bookingId: number = 0;
   eventId: number = 0;
+  username!:string;
 
   event: Event = {
     id: 0,
@@ -93,10 +94,13 @@ export class BookingComponent implements AfterViewInit {
         .get(`http://localhost:8080/bookings/${this.bookingId}`)
         .toPromise();
       //console.log(bookingResponse);
+      this.booking.userId = this.myauth.getUser().id;
       this.booking.eventId = bookingResponse.eventId;
       this.booking.bookingDate = bookingResponse.bookingDate;
       this.booking.ticketQuantity = bookingResponse.ticketQuantity;
       this.eventId = bookingResponse.eventId;
+
+      this.username = this.myauth.getUser().username;
 
       const eventResponse: any = await this.http
         .get(`http://localhost:8080/events/${this.eventId}`)

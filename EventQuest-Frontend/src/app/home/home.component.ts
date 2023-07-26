@@ -13,15 +13,17 @@ export class HomeComponent {
 
   loginPage(){
     this.ngsuiloader.start();
-    this.ngsuiloader.stop();
     this.router.navigate(['/login']);
+    this.ngsuiloader.stop();
+
 
   }
 
   signupPage(){
     this.ngsuiloader.start();
-    this.ngsuiloader.stop();
     this.router.navigate(['/signup']);
+    this.ngsuiloader.stop();
+
 
   }
 

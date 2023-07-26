@@ -16,7 +16,8 @@
   .search-form {
     margin-bottom: 20px;
     position: relative;
-    top:100px;
+    top:120px;
+    margin-bottom: 20px;
   }
   
   .search-form h3 {

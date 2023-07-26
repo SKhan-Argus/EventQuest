@@ -162,7 +162,7 @@ input:focus+.label,
 }
 
 .input:not(:placeholder-shown){
-  border: 2px solid #006adb;
+  border: 2px solid hsl(211, 100%, 43%);
 }
 
 input:focus::placeholder{

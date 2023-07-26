@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Event } from '../interface/Event';
 import { HttpClient } from '@angular/common/http';
 import { Booking } from '../interface/Booking';
@@ -12,7 +12,7 @@ import { Router, RouterEvent } from '@angular/router';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
 })
-export class UserComponent {
+export class UserComponent implements OnInit{
   eventName: string = '';
   eventLocation: string = '';
   events: Event[] = [];
@@ -27,7 +27,7 @@ export class UserComponent {
 
   ngOnInit() {
     this.events = [];
-    if(this.myauth.isLoggedIn()==='false'){
+    if(! (this.myauth.isLoggedIn()==='true')){
       this.router.navigate(['/login']);
       return
     }
