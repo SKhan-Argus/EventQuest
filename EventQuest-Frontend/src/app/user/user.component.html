@@ -37,14 +37,14 @@
       <button class="background" type="submit">Search</button>
     </form>
   </div>
-  
+
   <div class="events-list">
-    <h3 *ngIf="events.length==0">No Results Found!</h3>
-    <h3 *ngIf="events.length==0">Explore Beolw.</h3>
-    <div *ngIf="events.length==0">
+    <h3 *ngIf="events.length == 0">No Results Found!</h3>
+    <h3 *ngIf="events.length == 0">Explore Beolw.</h3>
+    <div *ngIf="events.length == 0">
       <app-sample-event></app-sample-event>
     </div>
-    <h3 *ngIf="events.length>0">Events List</h3>
+    <h3 *ngIf="events.length > 0">Events List</h3>
     <ul>
       <li *ngFor="let event of events">
         <div class="list-container">
@@ -56,7 +56,9 @@
             <p>Description: {{ event.description }}</p>
           </div>
           <div class="right">
-            <button class="book background" (click)="bookSeat(event)">Add Seat</button>
+            <button class="book background" (click)="bookSeat(event)">
+              Add Seat
+            </button>
             <p class="availability">Availability: {{ event.availability }}</p>
           </div>
         </div>

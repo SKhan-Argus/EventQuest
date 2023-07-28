@@ -5,26 +5,23 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
+  constructor(
+    private ngsuiloader: NgxUiLoaderService,
+    private router: Router
+  ) {}
 
-  constructor(private ngsuiloader:NgxUiLoaderService, private router:Router){}
-
-  loginPage(){
+  loginPage() {
     this.ngsuiloader.start();
     this.router.navigate(['/login']);
     this.ngsuiloader.stop();
-
-
   }
 
-  signupPage(){
+  signupPage() {
     this.ngsuiloader.start();
     this.router.navigate(['/signup']);
     this.ngsuiloader.stop();
-
-
   }
-
 }

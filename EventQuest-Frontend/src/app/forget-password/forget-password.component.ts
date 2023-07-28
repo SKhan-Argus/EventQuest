@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
@@ -16,13 +15,13 @@ export class ForgetPasswordComponent {
   newPassword: string = '';
   confirmPassword: string = '';
   step: 'email' | 'otp-verification' | 'new-password' = 'email';
-  isEmailVerified: boolean = false; 
+  isEmailVerified: boolean = false;
 
   constructor(
     private http: HttpClient,
     private ngxUiLoader: NgxUiLoaderService,
-    private router:Router,
-    private toastr:ToastrService,
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   async onSubmit() {
@@ -68,38 +67,37 @@ export class ForgetPasswordComponent {
             password: this.confirmPassword,
           };
           console.log(updateData);
-          
+
           const forgetPasswordResponse: any = await this.http
             .post(`http://localhost:8080/users/update-password`, updateData)
             .toPromise();
           // console.log(forgetPasswordResponse);
-          
+
           this.email = '';
           this.otp = '';
           this.newPassword = '';
           this.step = 'email';
-          this.confirmPassword='';
+          this.confirmPassword = '';
           this.isEmailVerified = false;
 
           this.router.navigate(['/login']);
           this.toastr.success('', 'Password Change Successful!');
-
         }
 
         break;
     }
   }
 
-  redirectToSignup(){
+  redirectToSignup() {
     this.ngxUiLoader.start();
     this.ngxUiLoader.stop();
     this.router.navigate(['/signup']);
   }
 
-  redirectToLogin(){
+  redirectToLogin() {
     this.ngxUiLoader.start();
     this.ngxUiLoader.stop();
     this.router.navigate(['/login']);
   }
-}import { ToastrService } from 'ngx-toastr';
-
+}
+import { ToastrService } from 'ngx-toastr';

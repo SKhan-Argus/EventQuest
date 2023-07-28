@@ -6,19 +6,21 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { BookingComponent } from './booking/booking.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { SampleEventComponent } from './sample-event/sample-event.component';
 //import { SampleEventComponent } from './sample-event/sample-event.component';
 
 const routes: Routes = [
-  {path:'', component:HomeComponent},
-  {path:'login',component:LoginComponent},
-  {path:'signup', component:SignupComponent},
-  {path:'user', component:UserComponent},
-  {path:'booking', component:BookingComponent},
-  {path:'forget', component:ForgetPasswordComponent},
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: 'user', component: UserComponent },
+  { path: 'booking', component: BookingComponent },
+  { path: 'forget', component: ForgetPasswordComponent },
+  { path: 'test', component: SampleEventComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -5,20 +5,19 @@
     <div #content>
       <h2>Booking Details</h2>
       <div class="booking-info">
-        <p><strong>Email:</strong>{{username}}</p>
-        <p><strong>Event Name:</strong> {{ event.name }}</p>
-        <p><strong>Event Date:</strong> {{ event.date }}</p>
-        <p><strong>Event Time:</strong> {{ event.time }}</p>
-        <p><strong>Location:</strong> {{ event.location }}</p>
-        <p><strong>Ticket Quantity:</strong> {{ booking.ticketQuantity }}</p>
-        <p><strong>Total Price:</strong> {{ booking.totalPrice }}</p>
+        <p><strong>Email : </strong>{{ username }}</p>
+        <p><strong>Event Name : </strong> {{ event.name }}</p>
+        <p><strong>Event Date : </strong> {{ event.date }}</p>
+        <p><strong>Event Time : </strong> {{ event.time }}</p>
+        <p><strong>Location : </strong> {{ event.location }}</p>
+        <p><strong>Ticket Quantity : </strong> {{ booking.ticketQuantity }}</p>
+        <p><strong>Total Price : </strong> {{ booking.totalPrice }}</p>
       </div>
     </div>
-      <div>
-        <button (click)="generatePdf()">
-          <strong><i>Download Ticket</i></strong>
-        </button>
-      </div>
+    <div>
+      <button (click)="generatePdf()">
+        <strong><i>Download Ticket</i></strong>
+      </button>
+    </div>
   </div>
-  
 </div>

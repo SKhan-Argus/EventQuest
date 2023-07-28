@@ -20,7 +20,11 @@ export class SignupComponent {
     gender: '',
   };
 
-  constructor(private http: HttpClient, private router: Router , private ngxuiloader:NgxUiLoaderService) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private ngxuiloader: NgxUiLoaderService
+  ) {}
 
   formatDate(date: Date): string {
     const day = date.getDate().toString().padStart(2, '0');

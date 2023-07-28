@@ -1,31 +1,29 @@
-
-.nav{
-    position: absolute;
-    display: flex;
-    align-items: center;
-    top: 60px;
-    right: 25px;
-    z-index: 5;
+.nav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 60px;
+  right: 25px;
+  z-index: 5;
 }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-  }
-  
-  .user-info i {
-    /* Add any margin or styling for the user icon, if needed */
-    margin-right: 8px;
-    color: #0069d9;
-  }
-  
-  .username {
-    /* Add any margin or styling for the username, if needed */
-    color: #0069d9;
-  }
-  
- 
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.user-info i {
+  /* Add any margin or styling for the user icon, if needed */
+  margin-right: 8px;
+  color: #0069d9;
+}
+
+.username {
+  /* Add any margin or styling for the username, if needed */
+  color: #0069d9;
+}
+
 /* 
 .btn {
     display: inline-block;
@@ -45,14 +43,12 @@
   }
    */
 
+.logout-icon {
+  cursor: pointer;
+  color: #e62107;
+}
 
-  .logout-icon{
-    cursor: pointer;
-    color: #e62107;
-  }
-
-  .logout-icon:hover{
-    font-size: 220%;
-    font-weight: bold;
-  }
-  
+.logout-icon:hover {
+  font-size: 220%;
+  font-weight: bold;
+}

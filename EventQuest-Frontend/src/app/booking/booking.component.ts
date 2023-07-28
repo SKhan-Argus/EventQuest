@@ -19,7 +19,7 @@ export class BookingComponent implements AfterViewInit {
 
   bookingId: number = 0;
   eventId: number = 0;
-  username!:string;
+  username!: string;
 
   event: Event = {
     id: 0,
@@ -82,7 +82,7 @@ export class BookingComponent implements AfterViewInit {
   // }
 
   ngOnInit() {
-    if (this.myauth.isLoggedIn()==='false') {
+    if (this.myauth.isLoggedIn() === 'false') {
       this.router.navigate(['/login']);
       return;
     }

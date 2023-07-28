@@ -40,7 +40,7 @@ export class EventDialogComponent {
     private http: HttpClient,
     private router: Router,
     private ngxuiloader: NgxUiLoaderService,
-    private toastr:ToastrService,
+    private toastr: ToastrService
   ) {
     this.event = data.event;
   }
@@ -78,7 +78,6 @@ export class EventDialogComponent {
                   queryParams: { bookingId: response.id },
                 });
                 this.toastr.success('', 'Booking Successful !');
-
               }
             },
             (error) => {

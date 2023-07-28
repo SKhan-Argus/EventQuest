@@ -11,7 +11,6 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  
   private getToken(): string | null {
     return localStorage.getItem('jwtToken');
   }
@@ -41,20 +40,24 @@ export class ApiService {
   // Method to perform authenticated GET requests
   get(url: string): Observable<any> {
     const headers = this.getHeaders();
-    return this.http.get(`${this.baseUrl}/${url}`, { headers }).pipe(catchError(this.handleError));
+    return this.http
+      .get(`${this.baseUrl}/${url}`, { headers })
+      .pipe(catchError(this.handleError));
   }
 
   // Method to perform authenticated POST requests
   post(url: string, data: any): Observable<any> {
     const headers = this.getHeaders();
-    return this.http.post(`${this.baseUrl}/${url}`, data, { headers }).pipe(catchError(this.handleError));
+    return this.http
+      .post(`${this.baseUrl}/${url}`, data, { headers })
+      .pipe(catchError(this.handleError));
   }
 
   // Add more methods for PUT, DELETE, etc. if needed
   public getHeadersWithToken(): HttpHeaders {
     const token = this.getToken();
     // console.log("token2 : "+ token);
-    
+
     if (!token) {
       // Handle the case when the token is not available (e.g., user not logged in)
       return new HttpHeaders();

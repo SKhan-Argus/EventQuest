@@ -7,31 +7,31 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-    isLoggedIn!:string;
-  loggedInUser!:any;
-  username!:string;
+  isLoggedIn!: string;
+  loggedInUser!: any;
+  username!: string;
 
-  constructor(private myauth:MyAuthService, private router:Router, private ngxuiloader:NgxUiLoaderService, private toastr:ToastrService){
-  
-  }
+  constructor(
+    private myauth: MyAuthService,
+    private router: Router,
+    private ngxuiloader: NgxUiLoaderService,
+    private toastr: ToastrService
+  ) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.isLoggedIn = this.myauth.isLoggedIn();
     this.loggedInUser = this.myauth.getUser();
     this.username = this.loggedInUser.username;
   }
 
-
-  logout(){
+  logout() {
     this.myauth.logout();
     this.ngxuiloader.start();
     this.ngxuiloader.stop();
     this.router.navigate(['/login']);
     this.toastr.success('', 'LogOut Successful !');
-
   }
-
 }

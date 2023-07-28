@@ -5,7 +5,6 @@
   height: 100vh;
   position: relative; /* Add position relative for proper stacking of elements */
   background: linear-gradient(120deg, #2980b9, #8e44ad);
-
 }
 
 .background-image {
@@ -80,7 +79,6 @@ input[type="date"] {
 .dob-group input {
   width: 57%;
   outline: none;
-
 }
 
 .signup-form button[type="submit"] {
@@ -131,7 +129,6 @@ input[type="date"] {
   font-weight: bold;
   animation: jumpAnimation 1s ease infinite;
   color: #ffffff80;
-  ;
   padding: 10px;
 }
 
@@ -205,8 +202,6 @@ input:focus::placeholder {
   /* animation-delay: 0.2s; */
 }
 
-.dob-group input:focus{
+.dob-group input:focus {
   border: 2px solid #006adb !important;
-
 }
-
