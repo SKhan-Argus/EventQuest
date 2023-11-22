@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="db209e07-1470-4e67-9f44-1cb906fe3640" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/EventQuest_Frontend/src/app/booking/booking.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/EventQuest_Frontend/src/app/booking/booking.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventQuest-Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/EventQuest-Backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventQuest-Frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/EventQuest-Frontend/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventQuest-Frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/EventQuest-Frontend/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventQuest-Frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/EventQuest-Frontend/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventQuest-Frontend/src/app/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/EventQuest-Frontend/src/app/home/home.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventQuest-Frontend/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/EventQuest-Frontend/src/app/home/home.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventQuest-Frontend/src/app/login/login.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/EventQuest-Frontend/src/app/login/login.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventQuest-Frontend/src/app/my-auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/EventQuest-Frontend/src/app/my-auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventQuest-Frontend/src/app/signup/signup.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/EventQuest-Frontend/src/app/signup/signup.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,8 +24,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/EventQuest_Frontend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2SgZmwufby5tnuwweNKbhFs9hHR" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -19,8 +39,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/sahil/Documents/EventQuest",
+    "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

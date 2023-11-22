@@ -26,6 +26,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ToastrModule } from 'ngx-toastr';
 import { timeout } from 'rxjs';
 import { CarouselModule } from './carousel/carousel.module';
+import { FooterComponent } from './footer/footer.component';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   text: 'Loading..',
@@ -52,6 +53,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     ForgetPasswordComponent,
     SampleEventComponent,
     NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
